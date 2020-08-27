@@ -1,1 +1,1 @@
-<blink>aNNOYING TEXT</blink>
+HelloWorld?
