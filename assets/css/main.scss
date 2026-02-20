@@ -1,0 +1,66 @@
+---
+---
+
+/*
+ * This file controls what is imported from /_sass
+ *
+ * Note that the files are processed in the order they are imported, so they are partly
+   sorted by the dependencies. Also, the first two lines of the file are required by Jekyll.
+ */
+ 
+ :root { --copy-accent: currentColor; }
+
+@import
+    "vendor/breakpoint/breakpoint",
+
+    "themes",
+    "theme/{{ site.site_theme | default: 'default' | append: '_light' }}",
+    "theme/{{ site.site_theme | default: 'default' | append: '_dark' }}",
+
+    "include/mixins",
+    "vendor/susy/susy",
+
+    "layout/reset",
+    "layout/base",
+
+    "include/utilities",
+    "layout/tables",
+    "layout/buttons",
+    "layout/notices",
+    "layout/masthead",
+    "layout/navigation",
+    "layout/footer",
+    "syntax",
+
+    "layout/forms",
+
+    "layout/page",
+    "layout/archive",
+    "layout/sidebar",
+    "layout/json_cv",
+
+    "vendor/font-awesome/fontawesome",
+    "vendor/font-awesome/solid",
+    "vendor/font-awesome/brands"
+;
+
+/* Stop the archive title underlining when hovering the whole item */
+.archive__item:hover .archive__item-title {
+  text-decoration: none !important;
+}
+
+/* Override Academic Pages theme link colors (CSS variables) */
+:root {
+  --global-link-color: #C69214;
+  --global-link-color-hover: #C7C200;
+  /* optional */
+  --global-link-color-visited: #272447;
+}
+
+/* If your dark mode uses a different root selector, also set it */
+html[data-theme="dark"] {
+  --global-link-color: #C69214;
+  --global-link-color-hover: #C7C200;
+  --global-link-color-visited: #272447;
+}
+

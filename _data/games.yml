@@ -1,0 +1,37 @@
+- title: "gloop"
+  image: "/images/games/thumbnails/gloop.gif"
+  url: "https://ollie-d.itch.io/gloop"
+
+- title: "melogio"
+  image: "/images/games/thumbnails/melogio.gif"
+  url: "https://ollie-d.itch.io/melogio"
+
+- title: "Symthesis"
+  image: "/images/games/thumbnails/symthesis.png"
+  url: "https://ollie-d.itch.io/symthesis"
+
+- title: "Ookie"
+  image: "/images/games/thumbnails/ookie.gif"
+  url: "https://ollie-d.itch.io/ookie"
+
+- title: "Packet Attack"
+  image: "/images/games/thumbnails/packet_attack.png"
+  url: "https://ollie-d.itch.io/packet-attack"
+
+- title: "Soul Weaver"
+  image: "/images/games/thumbnails/soul_weaver.png"
+  url: "https://ollie-d.itch.io/soul-weaver"
+
+- title: "drumroll"
+  image: "/images/games/thumbnails/drumroll.gif"
+  url: "https://ollie-d.itch.io/drumroll"
+  
+- title: "We All Die"
+  image: "/images/games/thumbnails/we_all_die.png"
+  url: "https://ollie-d.itch.io/we-all-die"
+  
+- title: "We're Drifting Apart"
+  image: "/images/games/thumbnails/drifting.png"
+  url: "https://ollie-d.itch.io/drifting"
+
+# Add as many games as you need; the grid will handle the rows.

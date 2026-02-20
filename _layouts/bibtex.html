@@ -1,0 +1,125 @@
+---
+layout: compress
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    {% include head.html %}
+    <style>
+      body { margin: 0; padding-top: 0 !important; }
+
+      /* Small-ish box that holds the plaintext */
+      .bibtex-box {
+        position: relative;
+        display: inline-block;         /* box width fits content-ish */
+        max-width: 900px;              /* don’t get too wide on big screens */
+        margin: 4px 10px 10px 10px;
+        padding: 12px 12px 10px 12px;
+        border: 1px solid rgba(128,128,128,.25);
+        border-radius: 10px;
+        background: rgba(0,0,0,.06);   /* keeps contrast reasonable in both themes */
+      }
+
+      pre.bibtex {
+        margin: 0;
+        white-space: pre;
+        overflow-x: auto;
+        padding-right: 56px;           /* room so button doesn’t overlap text */
+      }
+
+      /* Copy button anchored to top-right corner of the box */
+      .copy-wrap {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+      }
+
+      button.copy-btn {
+        cursor: pointer;
+        padding: .2rem .45rem;
+        border-radius: 8px;
+
+        background: transparent;                  /* no fill */
+        border: 1px solid var(--copy-accent);     /* outline only */
+        color: var(--copy-accent);                /* icon color matches border */
+        line-height: 1.2;
+      }
+
+      button.copy-btn:hover,
+      button.copy-btn:focus-visible {
+        background: transparent;
+        outline: 2px solid transparent;           /* keeps focus nice in high contrast */
+        box-shadow: 0 0 0 2px color-mix(in srgb, var(--copy-accent) 35%, transparent);
+      }
+
+      /* Success state for the icon (temporary) */
+      .copy-icon-ok { color: #16a34a; } /* green */
+
+      /* Tooltip styles left in place but unused (safe to delete if you want) */
+      .copied-tip {
+        position: absolute;
+        right: calc(100% + 0px);
+        top: 50%;
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: opacity 180ms ease, transform 180ms ease;
+        pointer-events: none;
+        padding: .2rem .45rem;
+        border-radius: 8px;
+        background: var(--global-border-color) !important;
+        border: 1px solid var(--global-border-color) !important;
+        color: var(--global-bg-color) !important;
+        white-space: nowrap;
+      }
+      .copied-tip.show { opacity: 1; }
+    </style>
+  </head>
+
+  <body>
+    <div class="bibtex-box">
+      <div class="copy-wrap">
+        <button class="copy-btn" type="button" id="copyBib" aria-label="Copy BibTeX">
+          <i id="copyIcon" class="fa-solid fa-copy" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <pre class="bibtex" id="bibtexText">{{ page.bibtex | escape }}</pre>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.getElementById('copyBib');
+        var pre = document.getElementById('bibtexText');
+        var icon = document.getElementById('copyIcon');
+
+        function flashSuccess() {
+          // swap clipboard -> check, then revert shortly after
+          icon.classList.remove('fa-copy');
+          icon.classList.add('fa-check', 'copy-icon-ok'); // use Font Awesome "check" icon [web:1]
+
+          window.clearTimeout(flashSuccess._t);
+          flashSuccess._t = window.setTimeout(function () {
+            icon.classList.remove('fa-check', 'copy-icon-ok');
+            icon.classList.add('fa-copy');
+          }, 900);
+        }
+
+        btn.addEventListener('click', async function () {
+          var text = pre.innerText;
+          try {
+            await navigator.clipboard.writeText(text);
+            flashSuccess();
+          } catch (e) {
+            // fallback: select the text so user can copy manually
+            var range = document.createRange();
+            range.selectNodeContents(pre);
+            var sel = window.getSelection();
+            sel.removeAllRanges();
+            sel.addRange(range);
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

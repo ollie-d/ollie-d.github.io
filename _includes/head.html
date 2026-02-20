@@ -1,0 +1,44 @@
+{% include base_path %}
+
+<meta charset="utf-8">
+
+{% include seo.html %}
+
+<link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ base_path }}/feed.xml{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<script>
+  (function () {
+    try {
+      // 1) If user explicitly picked a theme before, honor it.
+      var saved = localStorage.getItem('theme'); // expected 'dark' or 'light'
+      var theme = saved;
+
+      // 2) Otherwise fall back to system preference.
+      if (!theme) {
+        theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+          ? 'dark'
+          : 'light';
+      }
+
+      // 3) Apply before CSS to prevent flash.
+      document.documentElement.setAttribute('data-theme', theme);
+
+      // Optional: make built-in UI (form controls, scrollbars) match.
+      document.documentElement.style.colorScheme = theme;
+    } catch (e) { /* no-op */ }
+  })();
+</script>
+
+<style>
+  /* Prevent initial white canvas while CSS is loading */
+  html { background: #111; }
+</style>
+
+<link rel="stylesheet" href="{{ base_path }}/assets/css/main.css">
