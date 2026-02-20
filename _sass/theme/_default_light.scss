@@ -1,20 +1,33 @@
 /* ==========================================================================
-    DEFAULT THEME - LIGHT VERSION
+    DEFAULT THEME - DARK VERSION
     ========================================================================== */
+
 /* Color codes used for the theme */
 $primary-color              : #c69214;
 $gray                       : #7a8288;
 $dark-gray                  : mix(#000, $gray, 40%);
 $darker-gray                : mix(#000, $gray, 60%);
 $light-gray                 : mix(#fff, $gray, 50%);
-$lighter-gray               : mix(#fff, $gray, 90%);
 
-$background                 : #DBDBDB;
-$background-light           : mix(#000, $background, 80%);
-$background-lighter         : mix(#000, $background, 90%);
+$background                 : #474747;
+$background-light           : mix(#fff, $background, 80%);
+$background-lighter         : mix(#fff, $background, 90%);
 $link                       : #c69214;
 $link-dark                  : mix(#000, $link, 25%);
 $link-light                 : mix(#fff, $link, 25%);
+
+/* Format text colors with an HSL approach */
+$base-text-color: #ffffff;
+$h1-color: darken($base-text-color, 5%);
+$h2-color: darken($h1-color, 5%);
+$h3-color: darken($h2-color, 5%);
+$text: $h3-color;
+
+$h4-color: darken($h3-color, 3%);
+$h5-color: darken($h4-color, 3%);
+$h6-color: darken($h5-color, 3%);
+$dark-text: $h6-color;
+
 
 /* Color codes used for the site */
 $danger-color               : #ee5f5b;
@@ -22,18 +35,6 @@ $info-color                 : #2f7f93;
 $notice-color               : #7a8288;
 $success-color              : #62c462;
 $warning-color              : #f89406;
-
-/* Format text colors with an HSL approach */
-$base-text-color: #000000;
-$h1-color: lighten($base-text-color, 7%);
-$h2-color: lighten($h1-color, 5%);
-$h3-color: lighten($h2-color, 5%);
-$text: $h3-color;
-
-$h4-color: lighten($h3-color, 3%);
-$h5-color: lighten($h4-color, 3%);
-$h6-color: lighten($h5-color, 3%);
-$dark-text: $h6-color;
 
 /* Other basic settings for the template */
 $border-radius              : 4px;

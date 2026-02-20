@@ -10,7 +10,7 @@
 locale                   : "en-US"
 site_theme               : "default" # The available themes options are "default", "air", "sunrise", "mint", "dirt" and "contrast"
 title                    : "Ollie D'Amico"
-title_separator          : "-"
+title_separator          : "│"
 name                     : &name "Alessandro \"Ollie\" D'Amico"
 description              : &description "Ollie D'Amico's personal website and portfolio"   # Update this with a general description of your site, this is the default if not overridden by a page
 url                      : https://ollie-d.github.io/ # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",

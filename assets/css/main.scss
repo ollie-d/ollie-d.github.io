@@ -10,6 +10,16 @@
  
  :root { --copy-accent: currentColor; }
 
+ #theme-toggle {
+  display: none !important;
+}
+
+/* Hide hamburger unless GreedyNav has revealed hidden-links */
+.greedy-nav .hidden-links.hidden + button { display: none; }
+.greedy-nav .hidden-links:not(.hidden) + button { display: block; }
+
+
+
 @import
     "vendor/breakpoint/breakpoint",
 
