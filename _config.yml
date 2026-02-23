@@ -93,6 +93,14 @@ publication_category:
   conferences:
     title: 'Conference Papers'
 
+portfolio_category:
+  github_projects:
+    title: "GitHub"
+    priority: 1
+  other_projects:
+    title: "Other Projects"
+    priority: 2
+
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
 breadcrumbs              : false # true, false (default)

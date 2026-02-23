@@ -5,10 +5,82 @@ permalink: /portfolio/
 author_profile: true
 ---
 
+<style>
+  /* Hide the page title on this page */
+  h1#page-title, .page__title, .archive__title { display: none !important; }
+  .layout--archive .archive { padding-top: 0 !important; }
+
+  /* Make the role and link text smaller */
+  .portfolio-details { 
+    font-size: 0.85em; /* Adjust to 0.9em if this is too small */
+    margin-top: 0.5em; 
+  }
+  
+  /* Style for the custom GitHub notice */
+  .github-notice {
+    font-size: 0.85em;
+    margin-bottom: 2em;
+  }
+</style>
+
 {% include base_path %}
 
+{% if site.portfolio_category %}
+  {% for category in site.portfolio_category %}
+    {% assign title_shown = false %}
+    <!-- Loop through portfolio items (reversed = newest first) -->
+    {% for post in site.portfolio reversed %}
+      {% if post.category != category[0] %}
+        {% continue %}
+      {% endif %}
 
-{% for post in site.portfolio %}
-  {% include archive-single.html %}
-{% endfor %}
+      <!-- Show Category Header only once per group -->
+      {% unless title_shown %}
+        <h2>{{ category[1].title }}</h2><hr />
+        
+        <!-- Inject the custom GitHub notice right under its header -->
+        {% if category[0] == "github" or category[0] == "github_projects" %}
+          <div class="notice--info github-notice">
+            <strong>Note:</strong> I have 40+ public (100+ private) repositories on my GitHub page. This page contains a subset of those which are most relevant to academia.
+          </div>
+        {% endif %}
+        
+        {% assign title_shown = true %}
+      {% endunless %}
 
+      <!-- Custom Portfolio Item Layout -->
+      <div class="list__item">
+        <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+          
+          <!-- H3 Title with GitHub Icon inside -->
+          <h3 class="archive__item-title" itemprop="headline">
+            {% if post.repo_url %}
+              <!-- Icon Link (no text decoration, slight right margin) -->
+              <a href="{{ post.repo_url }}" target="_blank" title="View Project Repository" style="text-decoration: none; margin-right: 8px; color: inherit;">
+                <i class="fab fa-github" aria-hidden="true"></i>
+              </a>
+            {% endif %}
+            {{ post.title }}
+          </h3>
+          
+          <!-- Description -->
+          <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt }}</p>
+          
+          <!-- Contribution Section (Now Smaller) -->
+          <div class="portfolio-details">
+            {% if post.contribution %}
+              <p><strong>Contribution:</strong> {{ post.contribution }}</p>
+            {% endif %}
+          </div>
+          
+        </article>
+      </div>
+      
+    {% endfor %}
+  {% endfor %}
+{% else %}
+  <!-- Fallback if no categories are defined in _config.yml -->
+  {% for post in site.portfolio reversed %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% endif %}

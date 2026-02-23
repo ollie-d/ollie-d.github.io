@@ -20,8 +20,8 @@ main:
   - title: "Games"
     url: /games/
     
-  #- title: "Portfolio"
-  #  url: /portfolio/
+  - title: "Portfolio"
+    url: /portfolio/
         
   #- title: "Blog Posts"
   #  url: /year-archive/
