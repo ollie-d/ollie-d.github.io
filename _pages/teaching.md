@@ -5,7 +5,9 @@ author_profile: true
 ---
 
 <p>I've spent considerable efforts teaching before and during my Ph.D. training. I received special permission to be the instruct of record
-for our university's only brain-computer interface course: COGS 189. You can find my lectures on YouTube<p>
+for our university's only brain-computer interface course: COGS 189.</p>
+
+<p>Brain-computer interfaces are an interdisciplinary research topic. I teach students fundamentals of cognitive neuroscience, experimental psychology, digital signal processing, linear machine learning, and deep learning through a combination of lectures, hands-on programming assignments, and lab work with EEG equipment. The course concludes with a final project where students can apply what they've learned throughout the course. The course was initially developed by my advisor, professor Virginia de Sa. I began modifying the course with Dr. de Sa in 2019, and taught the course as the instructor in 2023 and 2025. You can find my 2023 lectures on YouTube:</p>
 
 <div class="yt-wrap">
   <iframe
@@ -31,8 +33,6 @@ for our university's only brain-computer interface course: COGS 189. You can fin
 <p><a href="https://www.youtube.com/playlist?list=PLwv-bM-hDe9eQ6eeZluQ2oJFPt_yvzz1g" target="_blank" rel="noopener">
   View full playlist on YouTube
 </a></p>
-
-<p>Brain-computer interfaces are an interdisciplinary research topic. I teach students fundamentals of cognitive neuroscience, experimental psychology, digital signal processing, linear machine learning, and deep learning through a combination of lectures, hands-on programming assignments, and lab work with EEG equipment. The course concludes with a final project where students can apply what they've learned throughout the course. The course was initially developed by my advisor, professor Virginia de Sa. I began modifying the course with Dr. de Sa in 2019, and taught the course as the instructor in 2023 and 2025.</p>
 
 <p>As part of COGS 189, I received funding from my department to purchase 10 OpenBCI Cyton amplifiers as well as caps. I would spend 5 hours a day in a classroom and supervise students collecting
 EEG data for their final projects. As a direct result of this pilot testing, my advisors and I received a course development grant from the university to fully develop an EEG lab course.
