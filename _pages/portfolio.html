@@ -52,12 +52,16 @@ author_profile: true
       <div class="list__item">
         <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
           
-          <!-- H3 Title with GitHub Icon inside -->
+          <!-- H3 Title with Icon inside -->
           <h3 class="archive__item-title" itemprop="headline">
             {% if post.repo_url %}
               <!-- Icon Link (no text decoration, slight right margin) -->
-              <a href="{{ post.repo_url }}" target="_blank" title="View Project Repository" style="text-decoration: none; margin-right: 8px; color: inherit;">
-                <i class="fab fa-github" aria-hidden="true"></i>
+              <a href="{{ post.repo_url }}" target="_blank" title="View Project Link" style="text-decoration: none; margin-right: 8px; color: inherit;">
+                {% if post.repo_url contains 'github.com' %}
+                  <i class="fab fa-github" aria-hidden="true"></i>
+                {% else %}
+                  <i class="fas fa-globe" aria-hidden="true"></i>
+                {% endif %}
               </a>
             {% endif %}
             {{ post.title }}

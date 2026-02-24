@@ -94,12 +94,13 @@ publication_category:
     title: 'Conference Papers'
 
 portfolio_category:
+  industry_projects:
+    title: "Industry & Entrepreneurship"
+    priority: 1
   github_projects:
     title: "GitHub"
-    priority: 1
-  other_projects:
-    title: "Other Projects"
     priority: 2
+  
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
